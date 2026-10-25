@@ -1,5 +1,20 @@
 # Changelog
 
+## v1.8.1 — dependency security updates
+
+Updates the third-party packages that had published security advisories, in
+`bim-orchestrator/uv.lock` and `autoaudit-ui/package-lock.json`. No code or
+behaviour changes.
+
+- Only the affected packages move. Where a patched release exists in the
+  current major version, the upgrade stays in that major.
+- Major upgrades where the fix requires one: Pillow 13, cryptography 50,
+  filelock 4, oauthlib 4. Streamlit (1.66) and langgraph move with them,
+  because their older releases cap Pillow and langgraph-sdk.
+- `chromadb` 1.5.9 is already the latest release and still has open advisories
+  with no fix. They concern Chroma's server mode; this project uses the
+  embedded client only.
+
 ## v1.8 — ACC project picker, and units that agree across backends
 
 ### Pick the ACC project by name
